@@ -1,14 +1,15 @@
 # Sample Web deployment from Docker image to Azure Cloud
 
-# If student trying to test the Deployment in Docker (only), they can do the step 1 - 3 only:
+## If student trying to test the Deployment in Docker (only), they can do the step 1 - 3 only:
 
 ## 1. This GitHub Repo includes Docker file and sample HTML code 
 Link: https://github.com/dipaish/sdtDocker 
 
 
 ## 2.You must have Docker installed in your local machine (Docker Desktop https://www.docker.com/ + Visual Studio Code )
-## You will need a Docker file to build your image
-## The Docker File specifies the configuration, dependencies, and requirements of your app. 
+You will need a Docker file to build your image
+
+The Docker File specifies the configuration, dependencies, and requirements of your app. 
 ´´´
 docker build  -t webapp .  #Remember to include the dot at the end (.)
 ´´´
