@@ -10,14 +10,17 @@ Link: https://github.com/dipaish/sdtDocker
 You will need a Docker file to build your image
 
 The Docker File specifies the configuration, dependencies, and requirements of your app. 
-´´´
+
+```
 docker build  -t webapp .  #Remember to include the dot at the end (.)
-´´´
+```
 
 ## 3. To run your newly built Docker image locally
-´´´
+
+```
 docker run -d -p 89:80 webapp
-´´´
+```
+
 ## 4. Create the Container Registry in Azure cloud
 You can create a Container Registry by using  Azure portal or the Azure CLI command.
 
@@ -33,10 +36,10 @@ Click to the token and generate the **password**. The Docker login command will 
 
 From local machine, use below command to access to Azure Container Registry:
 
-´´´
+```
 docker login -u token1 -p StringOfYourToken YourAzureContainer.azurecr.io
 
-´´´
+```
 <img width="796" alt="Screenshot 2025-04-13 at 21 26 01" src="https://github.com/user-attachments/assets/61ac5db4-feab-46cb-8178-5b9d87c32a21" />
 
 You can use the command docker images to see your image in local machine.
@@ -47,16 +50,21 @@ You can use the command docker images to see your image in local machine.
 - Tag the image
 
 docker tag <IMAGE_ID> <NEW_IMAGE_NAME>:<NEW_TAG>
+
+```
 docker tag webapp YourAzureContainer.azurecr.io/webapp:v1
+```
 
 - Docker Push
 <img width="819" alt="Screenshot 2025-04-13 at 21 32 10" src="https://github.com/user-attachments/assets/3cd924fc-110c-48fc-bd48-3f0739eb59ff" />
+
 
 ## 8. Verify the image pushed into your Respository
 
 This is the Docker image for the sample web app which is now available in your registry for deployment to App Service.
 
 <img width="819" alt="Screenshot 2025-04-13 at 21 32 10" src="https://github.com/user-attachments/assets/bcfb475e-2925-4f8a-bc06-1793055bfafd" />
+
 
 ## 9. Enable Docker Access
 We will create Azure App Service to retrieve the image for the web app from a repository in Azure Container Registry.
@@ -79,9 +87,9 @@ App Service is now hosting the app from your Docker image. Type the url of the A
 
 If you found the error like below:
 
-´´´
+```
 ERROR - no matching manifest for linux/amd64 in the manifest list entriesErr: 0, Message: no matching manifest for linux/amd64 in the manifest list entries
-´´´
+```
 <img width="1162" alt="Screenshot 2025-04-13 at 21 13 20" src="https://github.com/user-attachments/assets/ba7db949-7056-48ea-88bc-888852ad3e91" />
 
 
@@ -89,13 +97,13 @@ This means your Docker image was built for a different architecture (like linux/
 
 ### Rebuild your Docker image in your locally with the correct platform
 
-´´´
+```
 docker buildx build --platform linux/amd64 -t YourAzure.azurecr.io/webapp:latest . (including the dot(.))
-´´´
+```
 
 ### Then push it again: 
-´´´
+```
 docker push YourAzure.azurecr.io/webapp:latest
-´´´
+```
 
 Then Rebuild the image for linux/amd64 using docker buildx.
