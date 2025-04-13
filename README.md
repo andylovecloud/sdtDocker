@@ -28,7 +28,8 @@ You can create a Container Registry by using  Azure portal or the Azure CLI comm
 
 ## 5. Create Token  along with a password lets you authenticate with the registry
 
-![Screenshot 2025-04-13 at 21 21 08](https://github.com/user-attachments/assets/c6181865-82ec-48c4-b0ab-2be06a4213b3)
+<img width="1449" alt="Screenshot 2025-04-13 at 20 29 07" src="https://github.com/user-attachments/assets/dc1a22d5-3bfc-4792-baa2-992ca1289421" />
+
 
 Click to the token and generate the **password**. The Docker login command will be there.
 
