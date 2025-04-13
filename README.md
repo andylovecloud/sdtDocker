@@ -12,8 +12,10 @@ You will need a Docker file to build your image
 The Docker File specifies the configuration, dependencies, and requirements of your app. 
 
 ```
-docker build  -t webapp .  #Remember to include the dot at the end (.)
+docker build  -t webapp .
 ```
+**Remember to include the dot at the end (.)**
+
 
 ## 3. To run your newly built Docker image locally
 
@@ -99,8 +101,10 @@ This means your Docker image was built for a different architecture (like linux/
 ### Rebuild your Docker image in your locally with the correct platform
 
 ```
-docker buildx build --platform linux/amd64 -t YourAzure.azurecr.io/webapp:latest . (including the dot(.))
+docker buildx build --platform linux/amd64 -t YourAzure.azurecr.io/webapp:latest . 
 ```
+**Remember to include the dot at the end (.)**
+
 
 ### Then push it again: 
 ```
